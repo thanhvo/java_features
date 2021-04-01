@@ -336,4 +336,13 @@ public class Tester {
         List<Person> leaders = search(persons, "Thanh");
         assertEquals(leaders.get(0).getName().get(), "Thanh");
     }
+
+    @Test
+    public void whenListContainsInteger_OrElseThrowReturnsInteger() {
+        Integer firstEven = Arrays.asList(1, 2, 3, 4).stream()
+                .filter(i -> i % 2 == 0)
+                .findFirst()
+                .orElseThrow();
+        assertEquals(firstEven, Integer.valueOf(2));
+    }
 }
